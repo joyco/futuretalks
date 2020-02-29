@@ -1,0 +1,23 @@
+body{
+  background: #f7f7f7;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.navbar {
+  background-color: black;
+  opacity: 0.5;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  width: 100%;
+}
+
+
+.navbar li a{
+  color: #fff;
+  margin-top:10px;
+}
+
+.main-container{
+  margin-top: 15%;
+}
