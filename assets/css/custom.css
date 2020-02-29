@@ -21,3 +21,7 @@ body{
 .main-container{
   margin-top: 15%;
 }
+
+.footer-copyright{
+  background: #111;
+}
