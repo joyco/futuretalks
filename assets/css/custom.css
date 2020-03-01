@@ -24,6 +24,7 @@ body {
 
 .footer-copyright {
   background: #121313;
+  padding: 50px;
 }
 
 .footer-copyright ul li a {
@@ -54,4 +55,8 @@ body {
 
 .copyright a {
   color: #fff;
+}
+
+.instagram-container{
+  padding: 75px;
 }
