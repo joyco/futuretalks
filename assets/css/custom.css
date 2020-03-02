@@ -60,3 +60,15 @@ body {
 .instagram-container{
   padding: 75px;
 }
+
+.about{
+  background: #080808;
+}
+
+.about h2{
+  text-align: center;
+  font-size: 72px;
+  background: -webkit-linear-gradient(#4BB9CD, #0777A6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
