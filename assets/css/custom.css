@@ -51,10 +51,17 @@ body {
 .copyright {
   background: #080808;
   font-size: 12px;
+  padding: 25px;
 }
 
 .copyright a {
   color: #fff;
+}
+
+.copyright span{
+  color: #fff;
+  padding-right: 10px;
+  padding-left: 10px;
 }
 
 .instagram-container{
@@ -71,4 +78,9 @@ body {
   background: -webkit-linear-gradient(#4BB9CD, #0777A6);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+.footer-copy{
+  position: absolute;
+  right: 0px;
 }
