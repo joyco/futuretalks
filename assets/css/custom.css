@@ -1,27 +1,113 @@
+@font-face {
+  font-family: 'ATCOverlook';
+  src: url('ATCOverlook-Regular.woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+@font-face {
+  font-family: 'ATCOverlookThin';
+  src: url('ATCOverlook-Thin.woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
 body {
-  background: #f7f7f7;
-  font-family: 'Montserrat', sans-serif;
+  background: #080808;
+  cursor: none;
+  font-family: 'ATCOverlook', 'Montserrat', sans-serif;
+  font-size: 18px;
 }
 
+.custom-cursor {
+  background-color: #0072A0;
+  z-index: 99;
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+  #wrapper {
+  position: relative;
+  overflow: hidden;
+ }
 .navbar {
-  background-color: black;
-  opacity: 0.5;
-  top: 0;
-  left: 0;
-  z-index: 9999;
-  width: 100%;
+  padding-top: 2.22222em;
 }
 
+.navbar-brand {
+  padding: 0;
+}
 
-.navbar li a {
+.logo {
+  width: 2.88889em;
+}
+
+.logo-text {
+  width: 7.11111em;
+}
+
+.navbar-nav .nav-item {
+  padding: 0 1.3pt;
+}
+.navbar-nav li a {
+  display: inline-block;
   color: #fff;
-  margin-top: 10px;
+}
+
+.loginButton {
+  padding-top: 0px;
+}
+.loginButton polygon {
+  stroke-dasharray: 130, 19;
+  stroke-dashoffset: 47;
+}
+
+.navbar-brand-right img {
+  width: 140pt;
+}
+
+.bg-video{
+  position: absolute;
+  right: -23em;
+  top: -20em;
+  z-index: -1;
 }
 
 .main-container {
-  margin-top: 15%;
+  height: calc(100vh - 100px);
+  padding-top: 5%;
 }
 
+.main-container h1 {
+  color: #FFF;
+  font-size: 60pt;
+  font-weight: 100;
+  max-width: 10em;
+  line-height: 60pt;
+  font-family: 'ATCOverlookThin';
+  margin-bottom: 40pt;
+}
+.main-container p {
+  color: #A0A0A0
+}
+.main-container a {
+  display: block;
+  margin-top: 35pt;
+  color: #FFF;
+  font-size: 12pt;
+}
+.main-container a span {
+  display: inline-block;
+  width: 70pt;
+  height: 1px;
+  background: #FFF;
+  margin-right: 13pt;
+}
 .footer-copyright {
   background: #121313;
   padding: 50px;
@@ -59,10 +145,6 @@ body {
 
 .instagram-container{
   padding: 75px;
-}
-
-.about{
-  background: #080808;
 }
 
 .about h2{
