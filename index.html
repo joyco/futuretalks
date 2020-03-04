@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-us">
 
 <head>
     <!-- Required meta tags -->
@@ -17,7 +17,89 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-md navbar-dark">
+    <span class="custom-cursor" id="customCursor"></span>
+
+    <div id="wrapper">
+        <nav class="navbar navbar-expand-md navbar-dark">
+            <div class="container-fluid">
+                <!-- Brand -->
+                <a class="navbar-brand" href="#"><img src="assets/img/logo.png" alt="logo" class="img-fluid logo"
+                        width="80px"><img src="assets/img/logo-p.png" alt="logo" class="img-fluid logo-text"
+                        width="80px">
+                </a>
+
+                <!-- Toggler/collapsibe Button -->
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Navbar links -->
+                <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                    <ul class="navbar-nav ml-auto justify-content-end mr-4">
+                        <li class="nav-item mx-2">
+                            <a class="nav-link" href="#">search </a>
+                        </li>
+                        <li class="nav-item mx-2">
+                            <a class="nav-link active" href="#">En </a>
+                            <a class="nav-link" href="#">العربية</a>
+                        </li>
+                        <li class="nav-item mx-2">
+                            <a class="nav-link loginButton" href="">
+                                <svg width="115px" height="48px" viewBox="0 0 115 48" version="1.1"
+                                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <title>Button-Login</title>
+                                    <desc>Created with Sketch.</desc>
+                                    <defs></defs>
+                                    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                        <g id="Artboard" transform="translate(-279.000000, -26.000000)">
+                                            <g id="Button-Login" transform="translate(280.000000, 27.000000)">
+                                                <g id="Group-11">
+                                                    <path d="M18.5,23.25 L44.5,23.25" id="Line" stroke="#FFFFFF"
+                                                        stroke-linecap="square"></path>
+                                                    <polygon id="Rectangle-2" stroke="#FFFFFF" stroke-linecap="square"
+                                                        points="0 0 113 0 113 32.2939156 102.750556 45.7016681 0 45.7016681">
+                                                    </polygon>
+                                                    <text id="Login" fill="#FFFFFF" font-family="ATCOverlook"
+                                                        font-size="14" font-weight="normal" line-spacing="14">
+                                                        <tspan x="56" y="27">Login</tspan>
+                                                    </text>
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </svg>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="navbar-brand-right" href="#"><img src="assets/img/logo-alt.png" alt="logo"
+                                    class="img-fluid" width="80px">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="bg-video">
+            <video src="assets/img/pattern.mp4" class="" muted="" loop="" autoplay=""></video>
+        </div>
+
+        <div class="main-container container">
+            <div class="row">
+                <div class="col-md-9 ml-4">
+                    <h1>Inspiring those designing the future</h1>
+                    <div class="mx-5 px-5">
+                        <p>Dubai Future Talks gathers a global community of visionaries, change-makers,
+                            and pioneers. We believe in the strategic collaboration between the government and
+                            individuals
+                            to co-create the framework for the advancement of humanity.</p>
+                        <a href="#"><span></span>Watch Videos</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
         <div class="container">
             <!-- Brand -->
             <a class="navbar-brand" href="#"><img src="assets/img/logo-white.png" alt="logo" class="img-fluid"
@@ -94,7 +176,7 @@
             </div>
         </div>
     </div>
-
+    
     <div class="container instagram-container">
         <div class="row">
             <div class="col-md-5">
@@ -139,6 +221,12 @@
                     <a href="#"><img src="assets/img/dft-gov.png" alt="government logo" class="img-fluid" width="100px"
                             height="50px" /></a>
                 </div>
+                <div class="col-md-2">
+                    <a href="#"><img src="assets/img/logo-alt.png" alt=" logo" class="img-fluid" width="100px"
+                            height="50px" /></a>
+                    <a href="#"><img src="assets/img/dft-gov.png" alt="government logo" class="img-fluid" width="100px"
+                            height="50px" /></a>
+                </div>
             </div>
         </div>
     </footer>
@@ -155,6 +243,16 @@
     <script src="assets/js/jquery-3.2.1.slim.min.js"></script>
     <script src="assets/js/popper.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
+    <script>
+        // Creating function that will tell the position of cursor
+        // PageX and PageY will getting position values
+        var cursorId = document.getElementById("customCursor");
+        function UpdateCursorPos(pos) {
+            cursorId.style.left = pos.pageX + "px";
+            cursorId.style.top = pos.pageY + "px";
+        }
+        addEventListener('mousemove', UpdateCursorPos, false);
+    </script>
 </body>
 
 </html>
