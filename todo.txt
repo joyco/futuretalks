@@ -1,1 +1,3 @@
-- login button on mousehover
+- login button animation on mousehover
+- mouse pointer change on hover on links 
+- 
