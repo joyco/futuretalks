@@ -216,6 +216,14 @@
                     $("#customCursor").removeClass('custom-cursor-active');
                 }
             );
+
+            $(".loginButton svg").hover( //on hover of login button change svg polygon stroke offset
+                function () {
+                    $(".loginButton polygon").addClass('polygon-active');
+                }, function () {
+                    $(".loginButton polygon").removeClass('polygon-active');
+                }
+            );
         </script>
 </body>
 

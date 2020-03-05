@@ -83,7 +83,12 @@ body {
 .loginButton polygon {
   stroke-dasharray: 130, 19;
   stroke-dashoffset: 47;
+  transition: stroke-dashoffset .5s, transform 2s;
 }
+.polygon-active {
+  stroke-dashoffset: 255 !important;
+}
+
 
 .navbar-brand-right img {
   width: 140pt;
