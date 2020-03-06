@@ -365,9 +365,19 @@ body {
   width: 100%;
   background-color: transparent;
   border: none;
-  border-bottom: 1px solid #fff;
+  border-bottom: 1px solid #A0A0A0;
+  font-size: 15px;
+  color: #A0A0A0;
+  margin-top: 10px;
 }
 
+.footer-copyright li{
+  padding-bottom: 5px;
+}
+
+.footer-copyright a:hover{
+  color: #337ab7;
+}
 .copyright {
   background: #080808;
   font-size: 12px;
