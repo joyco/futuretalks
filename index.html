@@ -43,7 +43,12 @@
                 <div class="collapse navbar-collapse" id="collapsibleNavbar">
                     <ul class="navbar-nav ml-auto justify-content-end mr-4">
                         <li class="nav-item mx-2">
-                            <a class="nav-link" href="#">search </a>
+                            <form class="search-form" action="" method="post">
+                                <a class="nav-link search-button" href="#"><i class="fa fa-search"
+                                        aria-hidden="true"></i></a>
+                                <input value="" class="search-input" type="text" placeholder="Search"
+                                    onfocus="this.placeholder = ''" onblur="this.placeholder = 'Search'">
+                            </form>
                         </li>
                         <li class="nav-item mx-2">
                             <a class="nav-link active" href="#">En </a>
@@ -159,7 +164,14 @@
         <div id="myModal" class="modal-section">
             <div class="close-modal"></div>
             <div class="content-modal">
-                <div class="side-search"></div>
+                <div class="side-search">
+                    <form class="side-search-form" action="" method="post">
+                        <a class="search-button" href="#"><i class="fa fa-search fa-2x" aria-hidden="true"
+                                style="color: #999fa1;"></i></a>
+                        <input value="" class="side-search-input" type="text" placeholder="Search"
+                            onfocus="this.placeholder = ''" onblur="this.placeholder = 'Search'">
+                    </form>
+                </div>
                 <div class="side-items">
                     <a href="#">Watch</a>
                     <a href="#">Speakers</a>
@@ -319,7 +331,9 @@
                 }
             );
 
-            $(document).ready(function () { //to show and hide left side panel
+            $(document).ready(function () {
+
+                //to show and hide left side panel
                 $(".close-modal,.sideBar-close").click(function () { //hide side panel
                     $(".sideBar-close").css({ "left": "-100%", "opacity": "" });
                     $(".sideBar-toggle").css({ "left": "", "transform": "rotate(0deg)" });
@@ -337,6 +351,15 @@
                         $(".sideBar-close").css({ "left": "", "opacity": "1" });
                     }, 500);
 
+                });
+
+                $(".search-button").click(function () { //show search input box
+                    $(".search-form").css("width", "250px");
+                    $(".search-input").focus();
+                });
+
+                $(".search-input").focusout(function () {
+                    $(".search-form").css("width", "");
                 });
             });
         </script>
