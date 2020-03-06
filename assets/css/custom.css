@@ -53,6 +53,8 @@ body {
   position: relative;
   overflow: hidden;
 }
+
+/*start main navbar*/
 .navbar {
   padding-top: 2.22222em;
 }
@@ -63,6 +65,8 @@ body {
 
 .navbar-brand-white {
   display: none;
+  position: absolute;
+  z-index: 9;
 }
 
 .logo {
@@ -97,6 +101,7 @@ body {
 .navbar-brand-right img {
   width: 140pt;
 }
+/*end main navbar*/
 
 .bg-video{
   position: absolute;
@@ -105,30 +110,146 @@ body {
   z-index: -1;
 }
 
+/*start verticalbar*/
 .vertical-bar {
-  height: 100%;
-  width: 10%;
+  height: 66%;
+  width: 120px;
   position: fixed;
   left: 0;
+  bottom: 0;
+  z-index: 3;
 }
 .vertical-bar div {
   width:100%;
   height:50%;
-  display: table;
+  display: flex;
+  align-items: center;
+  padding: 35px 22px;
+  justify-content: center;
+  position: relative;
 }
 .vertical-bar div a {
-  vertical-align: middle;
-  display: table-cell;
+  width: 40px;
 }
+
+.sideBar-toggle {
+  transition: all 0.5s ease-in;
+  position: absolute;
+}
+.sideBar-toggle span{
+  height: 1px;
+  width: 100%;
+  background-color: #0072A0;
+  display: block;
+  margin: 15px 0;
+  background-image: linear-gradient(to right, #0777A6, #4BB9CD);
+}
+.sideBar-close {
+  opacity: 0;
+  transition: all 0.5s ease-in;
+  position: absolute;
+}
+.sideBar-close span {
+  height: 1px;
+  width: 100%;
+  transition: all 0.5s;
+  background-color: #FFF !important;
+  transform: rotate(45deg);
+  display: block;
+}
+/*end verticalbar*/
+
+/* align flex items */
+.aligner-item-bottom {
+  align-self: flex-end;
+}
+.aligner-item--top {
+  align-self: flex-start;
+}
+
+/*start left side panel modal*/
+.modal-section {
+  position: fixed;
+  top: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  outline: 0;
+  left: -100%;
+  transition: all 1s cubic-bezier(0.02, 1.01, 0.1, 1),  background-color 1s ease 0.5s;
+}
+.close-modal {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 4;
+}
+.content-modal {
+  z-index: 5;
+  width: 640px;
+  height: 100%;
+  background-image: linear-gradient(to right, #0777A6, #4BB9CD);
+  position: absolute;
+  display: table;
+}
+.side-search{
+  position: absolute;
+}
+.side-items {
+  display: table-cell;
+  vertical-align: middle;
+}
+.side-items a {
+  display: block;
+  color: #FFF;
+  font-size: 44pt;
+  font-weight: 300;
+  font-family: ATCOverlookThin;
+  text-align: left;
+  width: fit-content;
+  margin: 0 auto;
+  margin-bottom: 2px;
+}
+.side-items a:hover {
+  text-decoration: none;
+  border-bottom: 1px solid #FFF;
+  margin-bottom: 1px;
+}
+
+.side-subscribe {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  bottom: 0px;
+}
+.side-subscribe a {
+  color:#FFF;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  bottom: 2.5rem;
+}
+.side-subscribe a:hover {
+  text-decoration: none;
+} 
+/*end left side panel modal*/
 
 .main-container {
   height: calc(100vh - 100px);
-  padding: 5% 10% 0 10%;
+  padding: 0 120px 0 10%;
+  display: table;
+}
+.main-container .row {
+  display: table-cell;
+  vertical-align: middle;
 }
 
 .main-container h1 {
   color: #FFF;
-  font-size: 60pt;
+  font-size: 3.5rem;
   font-weight: 100;
   max-width: 10em;
   line-height: 60pt;
@@ -151,6 +272,7 @@ body {
   height: 1px;
   background: #FFF;
   margin-right: 13pt;
+  margin-bottom: 4px;
 }
 .footer-copyright {
   background: #121313;
