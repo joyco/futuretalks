@@ -33,4 +33,90 @@
         right: 0px;
     }
 
+    .main-container h1 {
+        font-size: 1.5rem;
+        line-height: 25pt;
+        font-family: 'ATCOverlookThin';
+        margin-bottom: 40pt;
+    }
+
+    .vertical-bar {
+        position: fixed;
+        bottom: 12em;
+        left: 15em;
+    }
+
+    .aligner-item-bottom {
+        visibility: hidden;
+    }
+
+    .side-search {
+        visibility: hidden;
+    }
+
+    .side-items a {
+        margin: 0 2em;
+    }
+
+    .subscribe a {
+        margin-left: -6em;
+    }
+
+    .main-container {
+        padding: 0;
+    }
+
+    .px-5 {
+        padding-left: 0em !important;
+    }
+
+    .instagram-container {
+        padding: 2em;
+    }
+
+    .instagram-container h3 {
+        padding-bottom: 2em;
+        font-size: 2em;
+    }
+
+    .triangle4 {
+        margin-top: 15%;
+    }
+
+    .footer-copyright {
+        padding: 2em 4em;
+    }
+
+    .footer-copyright ul {
+        margin-left: -2em
+    }
+
+    .newsletter i {
+        top: 2.7em;
+    }
+
+    .newsletter h4 {
+        font-size: 15px;
+    }
+
+    .newsletter textbox {
+        padding: 0;
+        margin: 0;
+    }
+
+    .footer-logo img{
+        padding-top: 1em;
+        width: 48%;
+    }
+
+    .footer-logo{
+        left: 0;
+    }
+
+    .side-subscribe{
+        left: -7em;
+    }
+    .vertical-bar > .sideBar-toggle{
+        visibility: hidden;
+    }
 }
