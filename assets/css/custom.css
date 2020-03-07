@@ -17,7 +17,7 @@
 body {
   background: #080808;
   cursor: none;
-  font-family: 'ATCOverlook', 'Montserrat', sans-serif;
+  font-family: 'ATCOverlookThin', 'Montserrat', sans-serif;
   font-size: 18px;
 }
 
@@ -62,12 +62,14 @@ body {
 
 .navbar-brand {
   padding: 0;
+  outline: none;
 }
 
 .navbar-brand-white {
   display: none;
   position: absolute;
   z-index: 9;
+  outline: none;
 }
 
 .logo {
@@ -141,6 +143,9 @@ body {
   right: -23em;
   top: -20em;
   z-index: -1;
+
+  /*transform: translate(-20em, 1598.61px) scale(0.9);
+  opacity: 0.5;*/
 }
 
 /*start verticalbar*/
@@ -207,6 +212,25 @@ body {
   align-self: flex-start;
 }
 
+
+.triangle {
+  background: url("../img/triangle.png") no-repeat;
+  width: 50px;
+  height: 50px;
+  display: block;
+  position: absolute;
+  background-size: cover;  
+  z-index: -1;
+}
+.triangle3 {
+  left: 27px;
+  top: -4px;
+  transform: rotate(26deg);
+}
+.triangle4 {
+  right: 2.5em;
+  transform: rotate(-20deg);
+}
 /*start left side panel modal*/
 .modal-section {
   position: fixed;
@@ -275,7 +299,7 @@ body {
   color: #FFF;
   font-size: 44pt;
   font-weight: 300;
-  font-family: ATCOverlookThin;
+  font-family: 'ATCOverlookThin';
   text-align: left;
   width: fit-content;
   margin: 0 auto;
@@ -315,6 +339,7 @@ body {
   padding: 0 7em;
 }
 
+/*start main container*/
 .main-container {
   height: calc(100vh - 100px);
   /*padding: 0 120px 0 10%;*/
@@ -325,6 +350,7 @@ body {
 .main-container .row {
   display: table-cell;
   vertical-align: middle;
+  width: 40em;
 }
 
 .main-container h1 {
@@ -338,7 +364,8 @@ body {
 }
 
 .main-container p {
-  color: #A0A0A0
+  color: #A0A0A0;
+  font-weight: 700;
 }
 
 .main-container a {
@@ -372,6 +399,41 @@ body {
   font-size: 1em;
   opacity: 0.5;
 }
+/*end main container*/
+
+/* start about us*/
+.about {
+  background:#121313;
+}
+.about h2 {
+  text-align: center;
+  font-size: 72px;
+  background: -webkit-linear-gradient(#4BB9CD, #0777A6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+/* end about us*/
+
+/*start insta section*/
+.instagram-container {
+  padding: 11em 7em 6em;
+}
+.instagram-container h3 {
+  background: linear-gradient(#4BB9CD, #0777A6);
+  text-transform: uppercase;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  font-size: 2.3em;
+  font-weight: 300;
+}
+.instagram-container .svg-button__path, .instagram-container .svg-button__line {
+  stroke: #ffffff;
+}
+.instagram-container .svg-button__text{
+  fill: #ffffff;
+  font-family: "ATCOverlook";
+}
+/*end insta section*/
 
 .footer-copyright {
   background: #121313;
