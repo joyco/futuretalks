@@ -568,3 +568,15 @@ a {
   position: absolute;
   top: 35%;
 }
+
+.left-icon{
+  margin-left: 5px;
+}
+
+.right-icon{
+  margin-left: 20px;
+}
+
+.instagram-container i{
+  color: #fff;
+}

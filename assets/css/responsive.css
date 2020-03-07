@@ -136,4 +136,10 @@
         margin-top: 0em !important;
         margin-left: 5%;
     }
+
+    .icon{
+        position: absolute;
+        top: 3em;
+    }
+    
 }
