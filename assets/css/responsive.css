@@ -92,7 +92,7 @@
     }
 
     .newsletter i {
-        top: 2.7em;
+        top: 1.3em;
     }
 
     .newsletter h4 {
@@ -104,19 +104,42 @@
         margin: 0;
     }
 
-    .footer-logo img{
+    .footer-logo img {
         padding-top: 1em;
         width: 48%;
     }
 
-    .footer-logo{
+    .footer-logo {
         left: 0;
     }
 
-    .side-subscribe{
+    .side-subscribe {
         left: -7em;
     }
-    .vertical-bar > .sideBar-toggle{
+
+    .vertical-bar>.sideBar-toggle {
         visibility: hidden;
     }
+
+    .about h2 {
+        font-size: 3.8em;
+    }
+
+    .about {
+        padding: 3em;
+    }
+
+    .about-content {
+        position: relative;
+        top: 0;
+        padding-top: 0em !important;
+        margin-top: 0em !important;
+        margin-left: 5%;
+    }
+
+    .icon{
+        position: absolute;
+        top: 3em;
+    }
+    
 }
