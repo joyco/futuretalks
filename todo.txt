@@ -1,3 +1,5 @@
 - stickty while scroll back it needs to shown again
 - all triangle rotate on scroll
 - canvas on about us section
+- In vertical bar a triangle is added (check if its resolution issue)
+- add animation to the vertical bar (show "show speakers about", while loading it has some effects)

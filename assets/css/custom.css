@@ -218,25 +218,29 @@ body {
   height: 50px;
   display: block;
   position: absolute;
-  background-size: cover;  
+  background-size: cover;
   z-index: -1;
 }
+
 .triangle1 {
   left: 9px;
   top: 50px;
   transform: rotate(-11deg);
   z-index: 3;
 }
+
 .triangle2 {
   z-index: 2;
   right: 0px;
   top: 55%;
 }
+
 .triangle3 {
   left: 27px;
   top: -4px;
   transform: rotate(26deg);
 }
+
 .triangle4 {
   right: 2.5em;
   transform: rotate(-20deg);
@@ -411,14 +415,16 @@ body {
   font-size: 1em;
   opacity: 0.5;
 }
+
 /*end main container*/
 
 /* start about us*/
 .about {
-  background:#121313;
+  background: #121313;
   padding-right: 1em;
   color: #FFF;
 }
+
 .about h2 {
   text-align: center;
   font-size: 7.8em;
@@ -428,12 +434,14 @@ body {
   padding: 0.5em 0 0;
   text-align: right;
 }
+
 /* end about us*/
 
 /*start insta section*/
 .instagram-container {
   padding: 11em 7em 5em;
 }
+
 .instagram-container h3 {
   background: linear-gradient(#4BB9CD, #0777A6);
   text-transform: uppercase;
@@ -442,19 +450,26 @@ body {
   font-size: 2.3em;
   font-weight: 300;
 }
-.instagram-container .svg-button__path, .instagram-container .svg-button__line {
+
+.instagram-container .svg-button__path,
+.instagram-container .svg-button__line {
   stroke: #ffffff;
 }
-.instagram-container .svg-button__text{
+
+.instagram-container .svg-button__text {
   fill: #ffffff;
   font-family: "ATCOverlook";
 }
+
 .insta-watch a:hover .svg-button__text {
-  fill:  #0072a0;
+  fill: #0072a0;
 }
-.insta-watch a:hover .svg-button__path, .insta-watch a:hover .svg-button__line {
+
+.insta-watch a:hover .svg-button__path,
+.insta-watch a:hover .svg-button__line {
   stroke: #0072a0;
 }
+
 /*end insta section*/
 
 .footer-copyright {
@@ -488,7 +503,7 @@ body {
   margin-top: 10px;
   padding-bottom: 15px;
   padding-top: 10px;
-  outline:none;
+  outline: none;
 }
 
 input:focus::placeholder {
@@ -547,4 +562,9 @@ a {
   padding-top: 25px;
   position: relative;
   left: 15%;
+}
+
+.about-content {
+  position: absolute;
+  top: 35%;
 }
