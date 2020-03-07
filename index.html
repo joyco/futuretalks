@@ -203,47 +203,46 @@
         </div>
 
         <!--Video container with all video thumbnails-->
-        <div class="container">
-            video section
+        <div class="video container">
+            <div class="container px-0" style="position: relative;">
+                <h2>video</h2>
+            </div>
         </div>
 
+
         <!-- who we are container -->
-        <div class="about">
-            <div class="container ">
+        <div class="about content-spacing pb-5">
+            <div class="container px-0" style="position: relative;">
+                <span class="triangle triangle1"></span>
                 <h2>WHO WE ARE</h2>
                 <div class="row">
 
-                    <div class="col-md-4">
-                        <p>
-                            We believe in Dubai’s transformative story - one built on future foresight - as a
-                            driving
-                            force
-                            for disruptive change.
-
-                            Our goal is to identify ideas, organizations and individuals that are at the forefront
-                            of
-                            change
-                            and broadcast them to audiences around the world.
-                        </p>
+                    <div class="col-md-4 mt-5 pt-5">
+                        <p>We believe in Dubai’s transformative story - one built on future foresight - as a driving
+                            force for disruptive change.</p>
+                        <p>Our goal is to identify ideas, organizations and individuals that are at the forefront of
+                            change and broadcast them to audiences around the world.</p>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-4 pr-0">
                         <img src="assets/img/who-we-are.jpg" class="img-fluid" alt="who we are" />
                     </div>
-                    <div class="col-md-4">
-                        <p>
+                    <div class="col-md-4 mt-5 pt-5 pl-0" style="position: relative;">
+                        <p class="mt-5 pt-5" style="position: absolute; top: 35%;">
                             We are a catalyst for action, prompting ideas and inspiring those designing the future.
                         </p>
                     </div>
                 </div>
+                <span class="triangle triangle2"></span>
             </div>
         </div>
 
-        <div class="container instagram-container content-spacing">
+        <!-- instagram container -->
+        <div class="instagram-container content-spacing">
             <div class="row mt-5 pt-5">
                 <div class="col-md-5 pl-0">
                     <h3>INSTAGRAM REEL</h3>
                 </div>
-                <div class="col-md-5 pl-5">
+                <div class="col-md-5 pl-5 insta-watch">
                     <span class="triangle triangle3"></span>
                     <a href="#">
                         <svg class="svg-button" width="218px" height="63px" viewBox="0 0 218 63" version="1.1"
@@ -272,12 +271,13 @@
 
         </div>
 
+        <!-- footer container -->
         <div class="footer-copyright content-spacing">
             <div class="container">
                 <div class="row ">
                     <div class="col-md-2">
                         <a href="#">
-                            <img src="assets/img/dft-logo.png" alt="footer logo"  class="img-fluid"  />
+                            <img src="assets/img/dft-logo.png" alt="footer logo" class="img-fluid" />
                         </a>
                     </div>
                     <div class="col-md-2">
@@ -298,8 +298,9 @@
                     </div>
                     <div class="col-md-3 newsletter">
                         <h4>Subscribe to our newsletter</h4>
-                        <div>
-                            <input type="text" name="newsletter" class="newsletter-textbox" placeholder="Email Address" />
+                        <div style="position: relative;">
+                            <input type="text" name="newsletter" class="newsletter-textbox"
+                                placeholder="Email Address" />
                             <i class="fa fa-long-arrow-alt-right"></i>
                         </div>
                     </div>
@@ -312,7 +313,6 @@
                 </div>
             </div>
         </div>
-
         <div class="copyright container-fluid ">
             <div class="row center">
                 <div class="col-md-8 text-center ">
@@ -356,7 +356,6 @@
             );
 
             $(document).ready(function () {
-
                 //to show and hide left side panel
                 $(".close-modal,.sideBar-close").click(function () { //hide side panel
                     $(".sideBar-close").css({ "left": "-100%", "opacity": "" });
@@ -386,12 +385,63 @@
                     $(".search-form").css("width", "");
                 });
 
+                $.fn.isInViewport = function () {
+                    let elementTop = $(this).offset().top;
+                    let elementBottom = elementTop + $(this).outerHeight();
+
+                    let viewportTop = $(window).scrollTop();
+                    let viewportBottom = viewportTop + $(window).height();
+
+                    return elementBottom > viewportTop && elementTop < viewportBottom;
+                };
+
+                var $triangles = $('.triangle'),
+                    $i = 0,
+                    $aboutScrollBefore = 0,
+                    $instaScrollBefore = 0;
+                var slidevalue = 0;
                 $(window).scroll(function () {
+                    //to make navbar sticky after scrolled
                     var scrolled = $(window).scrollTop();
                     if (scrolled > 150) {
                         $(".navbar-expand-md").addClass("nav-sticky");
                     } else {
                         $(".navbar-expand-md").removeClass("nav-sticky");
+                    }
+
+                    // to shift the bg video when insta div is in view
+                    if ($('.instagram-container').isInViewport()) {
+                        var topValue = Number($('.instagram-container').offset().top - 100);
+                        $(".bg-video").css({ "transform": "translate(-20em, " + topValue + "px) scale(0.9)", "opacity": "0.5" });
+                        //$('.triangle').css("transform", "rotate(" + window.pageYOffset + "deg)")
+                    } else {
+                        $(".bg-video").css({ "transform": "", "opacity": "" });
+                        $('.triangle').css("transform", "")
+                    }
+
+
+                    if ($('.about').isInViewport() || $('.instagram-container').isInViewport()) {
+                        if ($(this).scrollTop() > $instaScrollBefore) {
+                            $instaScrollBefore = $(this).scrollTop();
+                            $triangles.css("transform", "rotate(" + ($i += 1) + "deg)");
+                        } else if ($(this).scrollTop() < $instaScrollBefore) {
+                            $instaScrollBefore = $(this).scrollTop();
+                            $triangles.css("transform", "rotate(" + ($i -= 1) + "deg)");
+                        }
+                    } else {
+                        $triangles.css("transform", "");
+                    }
+
+                    if ($('.about').isInViewport()) {
+                        if ($(this).scrollTop() > $aboutScrollBefore) {
+                            $aboutScrollBefore = $(this).scrollTop();
+                            if (slidevalue < 100) $('.about h2').css("transform", "translateX(-" + (slidevalue += 2) + "px)");
+                        } else if ($(this).scrollTop() < $aboutScrollBefore) {
+                            $aboutScrollBefore = $(this).scrollTop();
+                            if (slidevalue > 0) $('.about h2').css("transform", "translateX(-" + (slidevalue -= 2) + "px)");
+                        }
+                    } else {
+                        $('.about h2').css("transform", "");
                     }
                 });
             });
