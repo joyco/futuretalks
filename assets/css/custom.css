@@ -90,10 +90,13 @@ body {
   color: #fff;
 }
 
-.nav-sticky .navbar-brand, .nav-sticky .navbar-brand-white {
+.nav-sticky .navbar-brand,
+.nav-sticky .navbar-brand-white {
   position: fixed;
 }
-.nav-sticky .navbar-brand .logo-text, .nav-sticky .navbar-brand-white .logo-text {
+
+.nav-sticky .navbar-brand .logo-text,
+.nav-sticky .navbar-brand-white .logo-text {
   opacity: 0;
   transform: translateX(30px);
 }
@@ -132,6 +135,7 @@ body {
 .navbar-brand-right img {
   width: 140pt;
 }
+
 /*end main navbar*/
 
 .bg-video {
@@ -386,6 +390,7 @@ body {
   bottom: 2.5em;
   right: 1.5em;
 }
+
 .socialIcons a {
   margin: 0;
   color: #A0A0A0;
@@ -432,7 +437,7 @@ body {
 
 .footer-copyright {
   background: #121313;
-  padding: 10% 7em;
+  padding: 7% 7em;
 }
 
 .footer-copyright ul li a {
@@ -443,6 +448,7 @@ body {
 
 .footer-copyright ul li {
   list-style-type: none;
+  padding-bottom: 10px;
 }
 
 .footer-copyright h4 {
@@ -458,15 +464,19 @@ body {
   font-size: 15px;
   color: #A0A0A0;
   margin-top: 10px;
+  padding-bottom: 15px;
+  padding-top: 10px;
+  outline:none;
 }
 
-.footer-copyright li{
-  padding-bottom: 5px;
+input:focus::placeholder {
+  color: transparent;
 }
 
-.footer-copyright a:hover{
+.footer-copyright a:hover {
   color: #337ab7;
 }
+
 .copyright {
   background: #080808;
   font-size: 12px;
@@ -485,7 +495,19 @@ body {
   padding-left: 10px;
 }
 
-.center{
+.instagram-container {
+  padding: 11em 7em;
+}
+
+.about h2 {
+  text-align: center;
+  font-size: 72px;
+  background: -webkit-linear-gradient(#4BB9CD, #0777A6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.center {
   padding-left: 25%;
 }
 
@@ -497,4 +519,22 @@ body {
 a:hover,
 a {
   cursor: none;
+}
+
+.newsletter i {
+  color: #fff;
+  position: absolute;
+  top: 45%;
+  right: 15px;
+}
+
+.footer-logo {
+  position: relative;
+  left: 12%;
+}
+
+.p-top {
+  padding-top: 25px;
+  position: relative;
+  left: 15%;
 }
