@@ -198,6 +198,11 @@
                 </div>
             </div>
 
+            <div class="socialIcons">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+
         </div>
 
         <!--Video container with all video thumbnails-->
@@ -352,8 +357,17 @@
                     $(".search-input").focus();
                 });
 
-                $(".search-input").focusout(function () {
+                $(".search-input").focusout(function () { //hide seach iput box
                     $(".search-form").css("width", "");
+                });
+
+                $(window).scroll(function () {
+                    var scrolled = $(window).scrollTop();
+                    if (scrolled > 150) {
+                        $(".navbar-expand-md").addClass("nav-sticky");
+                    } else {
+                        $(".navbar-expand-md").removeClass("nav-sticky");
+                    }
                 });
             });
         </script>

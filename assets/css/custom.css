@@ -76,6 +76,7 @@ body {
 
 .logo-text {
   width: 7.11111em;
+  transition: all 0.3s ease-in;
 }
 
 .navbar-nav .nav-item {
@@ -85,6 +86,14 @@ body {
 .navbar-nav li a {
   display: inline-block;
   color: #fff;
+}
+
+.nav-sticky .navbar-brand, .nav-sticky .navbar-brand-white {
+  position: fixed;
+}
+.nav-sticky .navbar-brand .logo-text, .nav-sticky .navbar-brand-white .logo-text {
+  opacity: 0;
+  transform: translateX(30px);
 }
 
 .search-form {
@@ -121,7 +130,6 @@ body {
 .navbar-brand-right img {
   width: 140pt;
 }
-
 /*end main navbar*/
 
 .bg-video {
@@ -301,8 +309,9 @@ body {
 
 .main-container {
   height: calc(100vh - 100px);
-  /*padding: 0 120px 0 10%;*/
+  padding: 0 120px 0 10%;
   display: table;
+  position: relative;
 }
 
 .main-container .row {
@@ -339,6 +348,20 @@ body {
   background: #FFF;
   margin-right: 13pt;
   margin-bottom: 4px;
+}
+
+.socialIcons {
+  position: absolute;
+  bottom: 2.5em;
+  right: 1.5em;
+}
+.socialIcons a {
+  margin: 0;
+  color: #A0A0A0;
+  display: inline-block;
+  margin: 0 0.5em;
+  font-size: 1em;
+  opacity: 0.5;
 }
 
 .footer-copyright {
