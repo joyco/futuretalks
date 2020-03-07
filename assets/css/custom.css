@@ -307,9 +307,12 @@ body {
 
 /*end left side panel modal*/
 
+.content-spacing {
+  padding: 0 7em;
+}
 .main-container {
   height: calc(100vh - 100px);
-  padding: 0 120px 0 10%;
+  /*padding: 0 120px 0 10%;*/
   display: table;
   position: relative;
 }
@@ -366,7 +369,7 @@ body {
 
 .footer-copyright {
   background: #121313;
-  padding: 10% 0;
+  padding: 10% 7em;
 }
 
 .footer-copyright ul li a {
@@ -420,7 +423,7 @@ body {
 }
 
 .instagram-container {
-  padding: 75px;
+  padding: 11em 7em;
 }
 
 .about h2 {
