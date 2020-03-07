@@ -53,6 +53,7 @@ body {
 #wrapper {
   position: relative;
   overflow: hidden;
+  color: #FFF;
 }
 
 /*start main navbar*/
@@ -63,6 +64,7 @@ body {
 .navbar-brand {
   padding: 0;
   outline: none;
+  z-index: 8;
 }
 
 .navbar-brand-white {
@@ -143,9 +145,6 @@ body {
   right: -23em;
   top: -20em;
   z-index: -1;
-
-  /*transform: translate(-20em, 1598.61px) scale(0.9);
-  opacity: 0.5;*/
 }
 
 /*start verticalbar*/
@@ -222,6 +221,17 @@ body {
   background-size: cover;  
   z-index: -1;
 }
+.triangle1 {
+  left: 9px;
+  top: 50px;
+  transform: rotate(-11deg);
+  z-index: 3;
+}
+.triangle2 {
+  z-index: 2;
+  right: 0px;
+  top: 55%;
+}
 .triangle3 {
   left: 27px;
   top: -4px;
@@ -231,6 +241,7 @@ body {
   right: 2.5em;
   transform: rotate(-20deg);
 }
+
 /*start left side panel modal*/
 .modal-section {
   position: fixed;
@@ -345,6 +356,7 @@ body {
   /*padding: 0 120px 0 10%;*/
   display: table;
   position: relative;
+  width: 100%;
 }
 
 .main-container .row {
@@ -404,19 +416,23 @@ body {
 /* start about us*/
 .about {
   background:#121313;
+  padding-right: 1em;
+  color: #FFF;
 }
 .about h2 {
   text-align: center;
-  font-size: 72px;
+  font-size: 7.8em;
   background: -webkit-linear-gradient(#4BB9CD, #0777A6);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  padding: 0.5em 0 0;
+  text-align: right;
 }
 /* end about us*/
 
 /*start insta section*/
 .instagram-container {
-  padding: 11em 7em 6em;
+  padding: 11em 7em 5em;
 }
 .instagram-container h3 {
   background: linear-gradient(#4BB9CD, #0777A6);
@@ -433,11 +449,17 @@ body {
   fill: #ffffff;
   font-family: "ATCOverlook";
 }
+.insta-watch a:hover .svg-button__text {
+  fill:  #0072a0;
+}
+.insta-watch a:hover .svg-button__path, .insta-watch a:hover .svg-button__line {
+  stroke: #0072a0;
+}
 /*end insta section*/
 
 .footer-copyright {
   background: #121313;
-  padding: 7% 7em;
+  padding: 4.5em 7em;
 }
 
 .footer-copyright ul li a {
@@ -460,7 +482,7 @@ body {
   width: 100%;
   background-color: transparent;
   border: none;
-  border-bottom: 1px solid #A0A0A0;
+  border-bottom: 1px solid rgba(160, 160, 160, 0.23);
   font-size: 15px;
   color: #A0A0A0;
   margin-top: 10px;
@@ -495,18 +517,6 @@ input:focus::placeholder {
   padding-left: 10px;
 }
 
-.instagram-container {
-  padding: 11em 7em;
-}
-
-.about h2 {
-  text-align: center;
-  font-size: 72px;
-  background: -webkit-linear-gradient(#4BB9CD, #0777A6);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
 .center {
   padding-left: 25%;
 }
@@ -525,7 +535,7 @@ a {
   color: #fff;
   position: absolute;
   top: 45%;
-  right: 15px;
+  right: 4px;
 }
 
 .footer-logo {

@@ -1,3 +1,3 @@
-- login button animation on mousehover
-- mouse pointer change on hover on links 
-- 
+- stickty while scroll back it needs to shown again
+- all triangle rotate on scroll
+- canvas on about us section
