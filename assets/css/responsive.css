@@ -33,4 +33,22 @@
         right: 0px;
     }
 
+    .main-container h1 {
+        font-size: 1.5rem;
+        line-height: 25pt;
+        font-family: 'ATCOverlookThin';
+        margin-bottom: 40pt;
+    }
+
+    .vertical-bar {
+        position: fixed;
+        bottom: 12em;
+        left: 15em;
+    }
+    .aligner-item-bottom {
+        visibility: hidden;
+    }
+    .side-search{
+        visibility: hidden;
+    }
 }
