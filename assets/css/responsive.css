@@ -12,6 +12,8 @@
 @media screen and (max-width: 768px) {}
 
 @media screen and (max-width: 640px) {
+    .custom-cursor { display:none; }
+    .main-container a span { width:30pt; }
     .copyright {
         font-size: 12px;
         padding: 20px;
@@ -44,6 +46,10 @@
         position: fixed;
         bottom: 12em;
         left: 15em;
+    }
+
+    .vertical-bar div a {
+        top: 2em;
     }
 
     .aligner-item-bottom {
@@ -148,6 +154,14 @@
         bottom: -5em;
     }
     .video-title{
-        font-size: 2em;
+        font-size: 1em;
     }
+    .video-info-content{ width:100%; }
+    .video-header a { font-size: 0.8em; }
+    .video-play { width: 2.5em; margin: 0;}
+    .videos { top: 2em; }
+    .video h2 { font-size: 4.5em; }
+    .video-thumbnails { bottom: -4em; }
+    .vertical-bar { z-index: 4; }
+    .modal-section { z-index: 3;}
 }
