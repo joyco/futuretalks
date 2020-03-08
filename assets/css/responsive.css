@@ -137,9 +137,17 @@
         margin-left: 5%;
     }
 
-    .icon{
+    .icon {
         position: absolute;
         top: 3em;
     }
-    
+
+    .all-videos {
+        position: absolute;
+        right: 6em;
+        bottom: -5em;
+    }
+    .video-title{
+        font-size: 2em;
+    }
 }
