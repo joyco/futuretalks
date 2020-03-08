@@ -303,7 +303,6 @@
             </div>
         </div>
 
-
         <!-- who we are container -->
         <div class="about content-spacing pb-5">
             <div class="container px-0" style="position: relative;">
@@ -483,7 +482,7 @@
                     $(".search-form").css("width", "");
                 });
 
-                $.fn.isInViewport = function () {
+                $.fn.isInViewport = function () { // to check if element is in view 
                     let elementTop = $(this).offset().top;
                     let elementBottom = elementTop + $(this).outerHeight();
 
@@ -530,7 +529,7 @@
                         $triangles.css("transform", "");
                     }
 
-                    if ($('.about').isInViewport()) {
+                    if ($('.about').isInViewport()) { //video section scale video once in view
                         if ($(this).scrollTop() > $aboutScrollBefore) {
                             $aboutScrollBefore = $(this).scrollTop();
                             if (slidevalue < 100) $('.about h2').css("transform", "translateX(-" + (slidevalue += 2) + "px)");
@@ -542,7 +541,7 @@
                         $('.about h2').css("transform", "");
                     }
 
-                    if ($(".video").isInViewport()) {
+                    if ($(".video").isInViewport()) { //video section scale video once in view
                         $('.videos').css("transform", "scaleX(0.85) scaleY(0.80)");
                     } else {
                         $('.videos').css("transform", "");
