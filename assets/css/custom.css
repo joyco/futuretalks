@@ -438,6 +438,10 @@ body {
   transition: all 1s cubic-bezier(0.18, 0.93, 0.24, 0.98);
   position: relative;
 }
+.videos video {
+  height: auto;
+  width: 100%;
+}
 .video-info {
   position: absolute;
   top: 0;
@@ -521,7 +525,7 @@ body {
   text-transform: capitalize;
   font-weight: 600;
   font-size: 1.2em;
-
+  bottom: -1.5em;
 }
 .all-videos:hover {
   text-decoration: none;
