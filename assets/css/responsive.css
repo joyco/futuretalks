@@ -164,4 +164,6 @@
     .video-thumbnails { bottom: -4em; }
     .vertical-bar { z-index: 4; }
     .modal-section { z-index: 3;}
+    .video-header p { font-size: 0.8em; }
+    .video-time { top: 3em; right: 0em;}
 }
