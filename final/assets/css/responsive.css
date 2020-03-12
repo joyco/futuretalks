@@ -1,0 +1,169 @@
+@media screen and (max-width: 1400px) {}
+
+@media screen and (max-width: 1198px) {}
+
+@media screen and (max-width: 1132px) {
+
+    @media screen and (max-width: 1024px) {}
+}
+
+@media screen and (max-width: 978px) {}
+
+@media screen and (max-width: 768px) {}
+
+@media screen and (max-width: 640px) {
+    .custom-cursor { display:none; }
+    .main-container a span { width:30pt; }
+    .copyright {
+        font-size: 12px;
+        padding: 20px;
+    }
+
+    .copyright a {
+        color: #fff;
+        font-size: 12px;
+        text-decoration: none;
+    }
+
+    .center {
+        padding-left: 0;
+    }
+
+    .footer-copy {
+        text-align: center;
+        position: relative;
+        right: 0px;
+    }
+
+    .main-container h1 {
+        font-size: 1.5rem;
+        line-height: 25pt;
+        font-family: 'ATCOverlookThin';
+        margin-bottom: 40pt;
+    }
+
+    .vertical-bar {
+        position: fixed;
+        bottom: 12em;
+        left: 15em;
+    }
+
+    .vertical-bar div a {
+        top: 2em;
+    }
+
+    .aligner-item-bottom {
+        visibility: hidden;
+    }
+
+    .side-search {
+        visibility: hidden;
+    }
+
+    .side-items a {
+        margin: 0 2em;
+    }
+
+    .subscribe a {
+        margin-left: -6em;
+    }
+
+    .main-container {
+        padding: 0;
+    }
+
+    .px-5 {
+        padding-left: 0em !important;
+    }
+
+    .instagram-container {
+        padding: 2em;
+    }
+
+    .instagram-container h3 {
+        padding-bottom: 2em;
+        font-size: 2em;
+    }
+
+    .triangle4 {
+        margin-top: 15%;
+    }
+
+    .footer-copyright {
+        padding: 2em 4em;
+    }
+
+    .footer-copyright ul {
+        margin-left: -2em
+    }
+
+    .newsletter i {
+        top: 1.3em;
+    }
+
+    .newsletter h4 {
+        font-size: 15px;
+    }
+
+    .newsletter textbox {
+        padding: 0;
+        margin: 0;
+    }
+
+    .footer-logo img {
+        padding-top: 1em;
+        width: 48%;
+    }
+
+    .footer-logo {
+        left: 0;
+    }
+
+    .side-subscribe {
+        left: -7em;
+    }
+
+    .vertical-bar>.sideBar-toggle {
+        visibility: hidden;
+    }
+
+    .about h2 {
+        font-size: 3.8em;
+    }
+
+    .about {
+        padding: 3em;
+    }
+
+    .about-content {
+        position: relative;
+        top: 0;
+        padding-top: 0em !important;
+        margin-top: 0em !important;
+        margin-left: 5%;
+    }
+
+    .icon {
+        position: absolute;
+        top: 3em;
+    }
+
+    .all-videos {
+        position: absolute;
+        right: 6em;
+        bottom: -5em;
+    }
+    .video-title{
+        font-size: 1em;
+    }
+    .video-info-content{ width:100%; }
+    .video-header a { font-size: 0.8em; }
+    .video-play { width: 2.5em; margin: 0;}
+    .videos { top: 2em; }
+    .video h2 { font-size: 4.5em; }
+    .video-thumbnails { bottom: -4em; }
+    .vertical-bar { z-index: 4; }
+    .modal-section { z-index: 3;}
+    .video-header p { font-size: 0.8em; }
+    .video-time { top: 3em; right: 0em;}
+}
