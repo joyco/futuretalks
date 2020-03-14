@@ -13,7 +13,7 @@ $(document).ready(function () {
     })
 
    //search movies  
-   // Note: searchMovies ---> search button id,  searchByName ---> search textbox id(delete this comment once integreated )
+   // Note: searchMovies ---> search button id,  searchByName ---> search textbox id(delete this comment once integreated ) or create a function on click and call this api
     $('#searchMovies').click(function () {
         var keyword = $('#searchByName').val()
         $.ajax({
