@@ -5,12 +5,12 @@ app.controller('movieController', function ($scope, movieService) {
         page: 1
     }
     $scope.movies = []
-    $scope.loadingFlag = false;
+    $scope.loading_flag = false;
 
     // search movie
     $scope.searchActive = false;
     $scope.search = ""
- 
+
     $scope.searchMovie = function () {
         $scope.searchActive = true;
         if ($scope.total_search_results > 0) {
@@ -26,7 +26,7 @@ app.controller('movieController', function ($scope, movieService) {
             keyword: $scope.search
         }
         $scope.movieService.searchMovies(param, function (error, result) {
-            
+
             if (error) {
                 // handle error
             }
@@ -41,10 +41,11 @@ app.controller('movieController', function ($scope, movieService) {
 
         })
     }
+
     // get all the movies
     $scope.getAllMovies = function () {
-        if (!$scope.loadingFlag) {
-            $scope.loadingFlag = true;
+        if (!$scope.loading_flag) {
+            $scope.loading_flag = true;
             if ($scope.search != "") {
                 // search movie
                 $scope.searchMovie()
@@ -82,7 +83,7 @@ app.controller('movieController', function ($scope, movieService) {
 
 
             setTimeout(function () {
-                $scope.loadingFlag = false;
+                $scope.loading_flag = false;
             }, 2000);
         }
     }
@@ -99,10 +100,34 @@ app.controller('movieController', function ($scope, movieService) {
                 //handle error
             }
             $scope.movieDetails = result.data;
+            window.location.href = 'details.html';
         })
     }
 
 
+
+    // Function to Sort the Data by given Property
+    function sortByProperty(property) {
+        return function (a, b) {
+            var sortStatus = 0,
+                aProp = a[property],
+                bProp = b[property];
+            if (aProp < bProp) {
+                sortStatus = -1;
+            } else if (aProp > bProp) {
+                sortStatus = 1;
+            }
+            return sortStatus;
+        };
+    }
+
+    // sortby
+    $scope.sortMovie = function (keyword) {
+        if (keyword === "upcoming")
+            $scope.sorted_movies = [];
+        else
+            $scope.sorted_movies = $scope.movies.sort(sortByProperty(keyword));
+    }
 
     $scope.clearSearch = function () {
         $scope.search = "";
@@ -110,10 +135,8 @@ app.controller('movieController', function ($scope, movieService) {
         $scope.getAllMovies()
 
     }
+});
 
-
-
-
-
-
+app.controller('detailsController', function ($scope) {
+    console.log($scope);
 });
