@@ -5,11 +5,12 @@ app.controller('movieController', function ($scope, movieService) {
         page: 1
     }
     $scope.movies = []
-    $scope.loadingFlag = false;
+    $scope.loading_flag = false;
+    $scope.sorted_movies = [];
     // get all the movies
     $scope.getAllMovies = function () {
-        if (!$scope.loadingFlag) {
-            $scope.loadingFlag = true;
+        if (!$scope.loading_flag) {
+            $scope.loading_flag = true;
 
             if ($scope.total_pages != undefined) {
                 if ($scope.currentPage <= $scope.total_pages) {
@@ -32,7 +33,7 @@ app.controller('movieController', function ($scope, movieService) {
                     }
                 });
                 setTimeout(function () {
-                    $scope.loadingFlag = false;
+                    $scope.loading_flag = false;
                 }, 2000);
             });
         }
@@ -50,6 +51,7 @@ app.controller('movieController', function ($scope, movieService) {
                 //handle error
             }
             $scope.movieDetails = result.data;
+            window.location.href = 'details.html';
         })
     }
 
@@ -71,6 +73,29 @@ app.controller('movieController', function ($scope, movieService) {
             })
 
         })
+    }
+
+    // Function to Sort the Data by given Property
+    function sortByProperty(property) {
+        return function (a, b) {
+            var sortStatus = 0,
+                aProp = a[property],
+                bProp = b[property];
+            if (aProp < bProp) {
+                sortStatus = -1;
+            } else if (aProp > bProp) {
+                sortStatus = 1;
+            }
+            return sortStatus;
+        };
+    }
+
+    // sortby
+    $scope.sortMovie = function (keyword) {
+        if (keyword === "upcoming")
+            $scope.sorted_movies = [];
+        else
+            $scope.sorted_movies = $scope.movies.sort(sortByProperty(keyword));
     }
 
     $scope.clearSearch = function () {
@@ -107,4 +132,8 @@ app.controller('movieController', function ($scope, movieService) {
     //         scope.loadMoreCourses();
     //     });
     // }
+});
+
+app.controller('detailsController', function ($scope) {
+    console.log($scope);
 });

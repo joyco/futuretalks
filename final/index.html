@@ -21,7 +21,7 @@
 <body ng-app="movieApp" ng-controller="movieController">
     <!--nav bar with header-->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">Movies</a>
+        <a class="navbar-brand" href="index.html">Movies</a>
     </nav>
 
     <!--Main container-->
@@ -50,24 +50,26 @@
             <div class="row">
                 <div class="col-md-3">
                     <label class="sortby-label">Sort by: </label>
-                    <select id="sortby" name="sortby" class="sortby">
-                        <option selected="" value="upcoming">Upcoming Movies</option>
-                        <option value="rating">Rating</option>
-                        <option value="release">By Release Date</option>
-                        <option value="alphabetical">Alphabetical</option>
+                    <select id="sortby" name="sortby" ng-model="sortbySelected" class="sortby"
+                        ng-change="sortMovie(sortbySelected)">
+                        <option value="vote_average">Rating</option>
+                        <option value="release_date">By Release Date</option>
+                        <option value="title">Alphabetical</option>
                     </select>
                 </div>
             </div>
 
-            <div class="row movieList">
-
+            <div class="row movieList" ng-if="sorted_movies.length==0">
                 <a ng-repeat="movie in movies" class="movie" ng-click="getDetailsById(movie.id)"><img
                         src="https://image.tmdb.org/t/p/original/{{movie.poster_path}}" alt=""
                         class="img-fluid logo"></a>
-                <!-- <a class="movie" href="#"><img src="assets/img/underwater.jpg" alt="" class="img-fluid logo"></a>
-                <a class="movie" href="#"><img src="assets/img/freaks.jpg" alt="" class="img-fluid logo"></a>
-                <a class="movie" href="#"><img src="assets/img/underwater.jpg" alt="" class="img-fluid logo"></a>
-                <a class="movie" href="#"><img src="assets/img/freaks.jpg" alt="" class="img-fluid logo"></a> -->
+            </div>
+
+            <div class="row movieListSort" ng-if="sorted_movies.length>0">
+                <a ng-repeat="movie in sorted_movies" class="movie" ng-if="movie.poster_path != null"
+                    ng-click="getDetailsById(movie.id)"><img
+                        src="https://image.tmdb.org/t/p/original/{{movie.poster_path}}" alt=""
+                        class="img-fluid logo"></a>
             </div>
 
 
