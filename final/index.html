@@ -13,6 +13,7 @@
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular-route.js"></script>
     <script src="assets/js/lazy-scroll.min.js"></script>
     <!-- <link rel="icon" href="assets/img/favicon.png" type="image/png"> -->
     <title>Movies</title>
@@ -59,21 +60,34 @@
                 </div>
             </div>
 
-            <div class="row movieList" ng-if="sorted_movies.length==0">
+            <!-- <div class="row movieList" ng-if="sorted_movies.length==0">
+                <a ng-repeat="movie in movies" class="movie" ng-click="getDetailsById(movie.id)"><img
+                        src="https://image.tmdb.org/t/p/original/{{movie.poster_path}}" alt=""
+                        class="img-fluid logo"></a>
+            </div> -->
+
+            <div id="movies-list">
+
+            </div>
+
+            <div class="row movieList" ng-if="total_search_results>0">
                 <a ng-repeat="movie in movies" class="movie" ng-click="getDetailsById(movie.id)"><img
                         src="https://image.tmdb.org/t/p/original/{{movie.poster_path}}" alt=""
                         class="img-fluid logo"></a>
             </div>
 
-            <div class="row movieListSort" ng-if="sorted_movies.length>0">
-                <a ng-repeat="movie in sorted_movies" class="movie" ng-if="movie.poster_path != null"
-                    ng-click="getDetailsById(movie.id)"><img
-                        src="https://image.tmdb.org/t/p/original/{{movie.poster_path}}" alt=""
-                        class="img-fluid logo"></a>
-            </div>
 
 
-            <!-- <div class="row even-row">
+        </div>
+
+        <div class="row movieListSort" ng-if="sorted_movies.length>0">
+            <a ng-repeat="movie in sorted_movies" class="movie" ng-if="movie.poster_path != null"
+                ng-click="getDetailsById(movie.id)"><img src="https://image.tmdb.org/t/p/original/{{movie.poster_path}}"
+                    alt="" class="img-fluid logo"></a>
+        </div>
+
+
+        <!-- <div class="row even-row">
                 <a class="movie large-banner" href="#"><img
                         src="https://image.tmdb.org/t/p/original//aQvJ5WPzZgYVDrxLX4R6cLJCEaQ.jpg" alt=""
                         class="img-fluid logo"></a>
@@ -90,7 +104,7 @@
                         src="https://image.tmdb.org/t/p/original//7W0G3YECgDAfnuiHG91r8WqgIOe.jpg" alt=""
                         class="img-fluid logo"></a>
             </div> -->
-            <!-- <div class="row odd-row">
+        <!-- <div class="row odd-row">
                 <a class="movie" href="#"><img
                         src="https://image.tmdb.org/t/p/original//d0FWbzrmm99BTfUqf1Lbjl2zu3S.jpg" alt=""
                         class="img-fluid logo"></a>
@@ -107,7 +121,7 @@
                         src="https://image.tmdb.org/t/p/original//6VZlm8sEwxkE3L5nXxz17QLj1sF.jpg" alt=""
                         class="img-fluid logo"></a>
             </div> -->
-        </div>
+    </div>
     </div>
 
 

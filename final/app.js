@@ -1,1 +1,1 @@
-var app = angular.module('movieApp',['lazy-scroll']);
+var app = angular.module('movieApp', ["ngRoute", 'lazy-scroll']);
