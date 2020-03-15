@@ -46,42 +46,7 @@
             </div>
         </div>
 
-        <!--Movie listing container-->
-        <div class="container " lazy-scroll="getAllMovies()" lazy-scroll-trigger="100">
-            <div class="row">
-                <div class="col-md-3">
-                    <label class="sortby-label">Sort by: </label>
-                    <select id="sortby" ng-model="sortby" class="sortby" onChange="sort(sortby)">
-                        <option selected="" value="upcoming">Upcoming Movies</option>
-                        <option value="vote_average">Rating</option>
-                        <option value="release_date">By Release Date</option>
-                        <option value="title">Alphabetical</option>
-                    </select>
-                </div>
-            </div>
-            <div >
-                <div ng-view></div>
-            </div>
-
-
-
-            <!-- <div class="row even-row">
-                <a class="movie large-banner" href="#"><img src="assets/img/freaks.jpg" alt=""
-                        class="img-fluid logo"></a>
-                <a class="movie" href="#"><img src="assets/img/underwater.jpg" alt="" class="img-fluid logo"></a>
-                <a class="movie" href="#"><img src="assets/img/freaks.jpg" alt="" class="img-fluid logo"></a>
-                <a class="movie" href="#"><img src="assets/img/freaks.jpg" alt="" class="img-fluid logo"></a>
-                <a class="movie" href="#"><img src="assets/img/underwater.jpg" alt="" class="img-fluid logo"></a>
-            </div> -->
-            <!-- <div class="row odd-row">
-                <a class="movie" href="#"><img src="assets/img/freaks.jpg" alt="" class="img-fluid logo"></a>
-                <a class="movie" href="#"><img src="assets/img/underwater.jpg" alt="" class="img-fluid logo"></a>
-                <a class="movie" href="#"><img src="assets/img/freaks.jpg" alt="" class="img-fluid logo"></a>
-                <a class="movie" href="#"><img src="assets/img/underwater.jpg" alt="" class="img-fluid logo"></a>
-                <a class="movie large-banner" href="#"><img src="assets/img/freaks.jpg" alt=""
-                        class="img-fluid logo"></a>
-            </div> -->
-        </div>
+        <div ng-view></div>
     </div>
 
 
