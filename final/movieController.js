@@ -5,29 +5,37 @@ app.controller('movieController', function ($scope, movieService) {
         page: 1
     }
     $scope.movies = []
+    $scope.loadingFlag = false;
     // get all the movies
     $scope.getAllMovies = function () {
-        if($scope.total_pages != undefined){
-            if ($scope.currentPage <=  $scope.total_pages) {
-                $scope.currentPage = $scope.currentPage + 1;
-            }
-        }else{
-            $scope.currentPage = options.page;
-        }
-        $scope.movieService.getAllMovies($scope.currentPage, function (error, result) {
-            if (error) {
-                //handle error
-            }
-            // $scope.movies = []
-            $scope.total_results = result.data.total_results;
-            $scope.total_pages = result.data.total_pages;
-            $scope.currentPage = $scope.currentPage;
-            result.data.results.forEach(element => {
-                if (element.poster_path != null) {
-                    $scope.movies.push(element)
+        if (!$scope.loadingFlag) {
+            $scope.loadingFlag = true;
+
+            if ($scope.total_pages != undefined) {
+                if ($scope.currentPage <= $scope.total_pages) {
+                    $scope.currentPage = $scope.currentPage + 1;
                 }
+            } else {
+                $scope.currentPage = options.page;
+            }
+            $scope.movieService.getAllMovies($scope.currentPage, function (error, result) {
+                if (error) {
+                    //handle error
+                }
+                // $scope.movies = []
+                $scope.total_results = result.data.total_results;
+                $scope.total_pages = result.data.total_pages;
+                $scope.currentPage = $scope.currentPage;
+                result.data.results.forEach(element => {
+                    if (element.poster_path != null) {
+                        $scope.movies.push(element)
+                    }
+                });
+                setTimeout(function () {
+                    $scope.loadingFlag = false;
+                }, 2000);
             });
-        });
+        }
     }
 
 
