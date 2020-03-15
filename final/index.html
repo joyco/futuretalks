@@ -50,11 +50,11 @@
             <div class="row">
                 <div class="col-md-3">
                     <label class="sortby-label">Sort by: </label>
-                    <select id="sortby" name="sortby" class="sortby">
+                    <select id="sortby" ng-model="sortby" class="sortby" onChange="sort(sortby)">
                         <option selected="" value="upcoming">Upcoming Movies</option>
-                        <option value="rating">Rating</option>
-                        <option value="release">By Release Date</option>
-                        <option value="alphabetical">Alphabetical</option>
+                        <option value="vote_average">Rating</option>
+                        <option value="release_date">By Release Date</option>
+                        <option value="title">Alphabetical</option>
                     </select>
                 </div>
             </div>
