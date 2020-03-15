@@ -12,11 +12,12 @@
     <link rel="stylesheet" href="assets\css\responsive.css">
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
     <!-- <link rel="icon" href="assets/img/favicon.png" type="image/png"> -->
     <title>Movies</title>
 </head>
 
-<body>
+<body ng-app="movieApp" ng-controller="movieController">
     <!--nav bar with header-->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="#">Movies</a>
@@ -46,31 +47,57 @@
 
         <!--Movie listing container-->
         <div class="container">
-            <div class="row">
+            <div class="row" ng-repeat = "movie in movies">
+
+                <a class="movie" ng-click = "getDetailsById(movie.id)"><img src="https://image.tmdb.org/t/p/original/{{movie.poster_path}}" alt="" class="img-fluid logo"></a>
+                <!-- <a class="movie" href="#"><img src="assets/img/underwater.jpg" alt="" class="img-fluid logo"></a>
                 <a class="movie" href="#"><img src="assets/img/freaks.jpg" alt="" class="img-fluid logo"></a>
                 <a class="movie" href="#"><img src="assets/img/underwater.jpg" alt="" class="img-fluid logo"></a>
-                <a class="movie" href="#"><img src="assets/img/freaks.jpg" alt="" class="img-fluid logo"></a>
-                <a class="movie" href="#"><img src="assets/img/underwater.jpg" alt="" class="img-fluid logo"></a>
-                <a class="movie" href="#"><img src="assets/img/freaks.jpg" alt="" class="img-fluid logo"></a>
+                <a class="movie" href="#"><img src="assets/img/freaks.jpg" alt="" class="img-fluid logo"></a> -->
             </div>
 
-            <div class="row">
+            <!-- <div class="row">
                 <a class="movie" href="#"><img src="assets/img/freaks.jpg" alt="" class="img-fluid logo"></a>
                 <a class="movie" href="#"><img src="assets/img/underwater.jpg" alt="" class="img-fluid logo"></a>
                 <a class="movie" href="#"><img src="assets/img/freaks.jpg" alt="" class="img-fluid logo"></a>
                 <a class="movie" href="#"><img src="assets/img/underwater.jpg" alt="" class="img-fluid logo"></a>
                 <a class="movie" href="#"><img src="assets/img/freaks.jpg" alt="" class="img-fluid logo"></a>
-            </div>
+            </div> -->
         </div>
     </div>
 
 
     <!--All javascript files loaded-->
-    <!-- <script src="assets/js/jquery-3.2.1.slim.min.js"></script> -->
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="assets/js/popper.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
-    <script src="assets/js/service.js"></script>
+    <script src="app.js"></script>
+    <script src="assets/js/movieService.js"></script>
+    <script src="movieController.js"></script>
+
+    <script>
+        // var app = angular.module('movieApp', []);
+
+        // app.factory('movieService', function ($http) {
+        //     var Movie = function () { };
+        //     Movie.prototype.getAllMovies = function (param) {
+        //         alert("here")
+        //         get()
+        //     };
+        //     return Movie;
+        // })
+
+        // app.controller('movieController', function ($scope, movieService) {
+        //     // $scope.movieService = new Movie();
+        //     $scope.getAllMovies = function () {
+        //         movieService.getAllMovies(param, function (error, result) {
+        //             $scope.mapLayers = result.data;
+        //         });
+        //     }
+
+        //     $scope.getAllMovies()
+        // });
+    </script>
 </body>
 
 </html>
