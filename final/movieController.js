@@ -34,10 +34,12 @@ app.controller('movieController', function ($scope, movieService) {
             keyword: keyword
         }
         $scope.movieService.searchMovies(param, function (error, result) {
+            $scope.movies = []
             if (error) {
                 // handle error
             }
-            console.log(result)
+            console.log(result.data.results)
+            $scope.movies = result.data.results;
         })
     }
 });
