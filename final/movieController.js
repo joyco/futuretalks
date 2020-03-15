@@ -4,6 +4,7 @@ app.controller('movieController', function ($scope, movieService) {
     var options = {
         page: 1
     }
+    $scope.movies = []
     // get all the movies
     $scope.getAllMovies = function () {
         if($scope.total_pages != undefined){
