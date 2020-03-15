@@ -30,11 +30,11 @@
         <div class="container">
             <div class="row my-4">
                 <div class="col-md-12">
-                    <form role="search" method="get" action="/search">
+                    <form role="search" method="get" ng-submit="searchMovie(search)">
                         <div>
                             <div class="search-container">
                                 <input type="search" class="search-input" style="border-radius:2px 0 0 2px"
-                                    placeholder="Search within these results" value="movies"><button
+                                    placeholder="Search within these results" ng-model="search"><button
                                     class="clear-button">X</button>
                             </div>
                             <button class="search-button" style="border-radius:0 2px 2px 0">Search
