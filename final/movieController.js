@@ -1,12 +1,12 @@
 
-app.controller('movieController', function ($scope, movieService) {
+app.controller('movieController', function ($scope, movieService, $location) {
     $scope.movieService = new movieService();
     var options = {
         page: 1
     }
     $scope.movies = []
     $scope.loadingFlag = false;
-
+    $scope.sorted_movies = []
     // search movie
     $scope.searchActive = false;
     $scope.search = ""
@@ -30,6 +30,7 @@ app.controller('movieController', function ($scope, movieService) {
             if (error) {
                 // handle error
             }
+            
             $scope.total_search_results = result.data.total_results;
             $scope.total_search_pages = result.data.total_pages;
             $scope.currentSearchPage = $scope.currentSearchPage;
@@ -99,11 +100,12 @@ app.controller('movieController', function ($scope, movieService) {
                 //handle error
             }
             $scope.movieDetails = result.data;
+            $location.path("/detail");
         })
     }
 
 
-
+    // clear search
     $scope.clearSearch = function () {
         $scope.search = "";
         $scope.total_search_results = 0;
