@@ -1,13 +1,26 @@
 
 app.controller('movieController', function ($scope, movieService) {
     $scope.movieService = new movieService();
+    var options = {
+        page: 1
+    }
     // get all the movies
-    $scope.getAllMovies = function (param) {
-        $scope.movieService.getAllMovies(param, function (error, result) {
+    $scope.getAllMovies = function () {
+        if($scope.total_pages != undefined){
+            if ($scope.currentPage <=  $scope.total_pages) {
+                $scope.currentPage = $scope.currentPage + 1;
+            }
+        }else{
+            $scope.currentPage = options.page;
+        }
+        $scope.movieService.getAllMovies($scope.currentPage, function (error, result) {
             if (error) {
                 //handle error
             }
-            $scope.movies = []
+            // $scope.movies = []
+            $scope.total_results = result.data.total_results;
+            $scope.total_pages = result.data.total_pages;
+            $scope.currentPage = $scope.currentPage;
             result.data.results.forEach(element => {
                 if (element.poster_path != null) {
                     $scope.movies.push(element)
@@ -16,11 +29,9 @@ app.controller('movieController', function ($scope, movieService) {
         });
     }
 
-    let options = {
-        page: 1
-    }
+
     // initially get all the movies
-    $scope.getAllMovies(options)
+    $scope.getAllMovies()
 
 
     // get movie details by id
@@ -57,4 +68,34 @@ app.controller('movieController', function ($scope, movieService) {
         $scope.search = "";
         $scope.getAllMovies(options)
     }
+
+
+    // scope.loadMoreCourses = function () {
+    //     // if (scope.loadingResult) {
+    //     //     return;
+    //     // }
+    //     if ($scope.option.page >=  $scope.total_pages) {
+    //         return;
+    //     }
+    //     $scope.currentPage = $scope.currentPage + 1;
+    //     // $scope.page = (scope.pagination.currentPage - 1) * scope.pagination.pageSize;
+    //     // $scope.page = scope.pagination.pageSize;
+    //     // scope.loadingResult = true;
+    //     // $scope.movie = CourseService.courses.list({ offset: scope.offset, limit: scope.limit });
+    //     // scope.loadingResult = false;
+    //     let param = {
+    //         page: $scope.currentPage
+    //     }
+    //     $scope.movieService.getAllMovies(param, function (error, result) {
+
+    //     })
+    // };
+
+    // scope.initializeResultList = function () {
+    //     CourseService.courses.count({}, function (count) {
+    //         scope.total = count;
+    //         scope.pagination.noOfPages = Math.ceil(count / scope.pagination.pageSize);
+    //         scope.loadMoreCourses();
+    //     });
+    // }
 });

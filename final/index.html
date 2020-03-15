@@ -13,6 +13,7 @@
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+    <script src="assets/js/lazy-scroll.min.js"></script>
     <!-- <link rel="icon" href="assets/img/favicon.png" type="image/png"> -->
     <title>Movies</title>
 </head>
@@ -45,8 +46,8 @@
         </div>
 
         <!--Movie listing container-->
-        <div class="container">
-            <div class="row" ng-repeat="movie in movies">
+        <div class="container " lazy-scroll="getAllMovies()">
+            <div class="row movieList" ng-repeat="movie in movies" >
 
                 <a class="movie" ng-click="getDetailsById(movie.id)"><img
                         src="https://image.tmdb.org/t/p/original/{{movie.poster_path}}" alt=""

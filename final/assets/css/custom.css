@@ -24,6 +24,7 @@ body {
   display: inline-block;
   position: relative;
 }
+
 .search-input {
   font-size: 16px;
   color: hsl(0, 0%, 10%);
@@ -70,4 +71,11 @@ body {
 .movie {
   width: 25%;
   display: inline-block;
+}
+
+.movieList {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  overflow: hidden;
 }

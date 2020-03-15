@@ -3,8 +3,8 @@ app.factory('movieService', function ($http) {
     var apiKey = "3dc10d04a30f7b13a6d697435f363644";
     var Movie = function () { };
     // get all the movies
-    Movie.prototype.getAllMovies = function (paramObj, callback) {
-        let path = "movie/upcoming" + "?api_key=" + apiKey + "&page=" + paramObj.page
+    Movie.prototype.getAllMovies = function (param, callback) {
+        let path = "movie/upcoming" + "?api_key=" + apiKey + "&page=" + param
         get(path, function (error, result) {
             callback(error, result);
         });
