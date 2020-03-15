@@ -6,6 +6,7 @@ app.controller('movieController', function ($scope, movieService) {
     }
     $scope.movies = []
     $scope.loading_flag = false;
+    $scope.sorted_movies = [];
 
     // search movie
     $scope.searchActive = false;
