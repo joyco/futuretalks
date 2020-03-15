@@ -71,6 +71,39 @@ body {
 .movie {
   width: 25%;
   display: inline-block;
+  height: 50%;
+}
+
+.large-banner{
+  width: 50%
+}
+
+.even-row, .odd-row {
+  position: relative;
+  margin-bottom: 1rem;
+}
+.even-row a:nth-last-child(2) {
+  position: absolute;
+  right: 25%;
+  bottom: 0;
+}
+
+.even-row a:nth-last-child(1) {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+.odd-row a:nth-last-child(4) {
+  position: absolute;
+  left: 25%;
+  bottom: 0;
+}
+
+.odd-row a:nth-last-child(3) {
+  position: absolute;
+  left: 0;
+  bottom: 0;
 }
 
 .movieList {
