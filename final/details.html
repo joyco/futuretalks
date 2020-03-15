@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="assets\css\bootstrap.min.css">
+    <link rel="stylesheet" href="assets\css\custom.css">
+    <link rel="stylesheet" href="assets\css\responsive.css">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+    <!-- <link rel="icon" href="assets/img/favicon.png" type="image/png"> -->
+    <title>Movies</title>
+</head>
+
+<body ng-app="movieApp" ng-controller="detailsController">
+    <!--nav bar with header-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="index.html">Movies</a>
+    </nav>
+
+    <!--Main container-->
+    <div class="wrapper">
+
+        <!--Movie listing container-->
+        <div class="container">
+
+
+            <div class="row movieList" ng-if="sorted_movies.length==0">
+                <a ng-repeat="movie in movies" class="movie" ng-click="getDetailsById(movie.id)"><img
+                        src="https://image.tmdb.org/t/p/original/{{movie.poster_path}}" alt=""
+                        class="img-fluid logo"></a>
+            </div>
+        </div>
+    </div>
+
+
+    <!--All javascript files loaded-->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="assets/js/popper.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="app.js"></script>
+    <script src="assets/js/movieService.js"></script>
+    <script src="movieController.js"></script>
+</body>
+
+</html>
