@@ -6,36 +6,85 @@ app.controller('movieController', function ($scope, movieService) {
     }
     $scope.movies = []
     $scope.loading_flag = false;
-    $scope.sorted_movies = [];
+
+    // search movie
+    $scope.searchActive = false;
+    $scope.search = ""
+
+    $scope.searchMovie = function () {
+        $scope.searchActive = true;
+        if ($scope.total_search_results > 0) {
+            if ($scope.currentSearchPage <= $scope.total_search_pages) {
+                $scope.currentSearchPage = $scope.currentSearchPage + 1;
+            }
+        } else {
+            $scope.movies = []
+            $scope.currentSearchPage = options.page;
+        }
+        let param = {
+            page: $scope.currentSearchPage,
+            keyword: $scope.search
+        }
+        $scope.movieService.searchMovies(param, function (error, result) {
+
+            if (error) {
+                // handle error
+            }
+            $scope.total_search_results = result.data.total_results;
+            $scope.total_search_pages = result.data.total_pages;
+            $scope.currentSearchPage = $scope.currentSearchPage;
+            result.data.results.forEach(element => {
+                if (element.poster_path != null) {
+                    $scope.movies.push(element)
+                }
+            })
+
+        })
+    }
+
     // get all the movies
     $scope.getAllMovies = function () {
         if (!$scope.loading_flag) {
             $scope.loading_flag = true;
-
-            if ($scope.total_pages != undefined) {
-                if ($scope.currentPage <= $scope.total_pages) {
-                    $scope.currentPage = $scope.currentPage + 1;
-                }
+            if ($scope.search != "") {
+                // search movie
+                $scope.searchMovie()
             } else {
-                $scope.currentPage = options.page;
-            }
-            $scope.movieService.getAllMovies($scope.currentPage, function (error, result) {
-                if (error) {
-                    //handle error
-                }
-                // $scope.movies = []
-                $scope.total_results = result.data.total_results;
-                $scope.total_pages = result.data.total_pages;
-                $scope.currentPage = $scope.currentPage;
-                result.data.results.forEach(element => {
-                    if (element.poster_path != null) {
-                        $scope.movies.push(element)
+                // upcomin movie
+                if ($scope.total_pages != undefined) {
+                    if ($scope.currentPage <= $scope.total_pages) {
+                        $scope.currentPage = $scope.currentPage + 1;
                     }
+                } else {
+                    $scope.currentPage = options.page;
+                }
+
+                if ($scope.searchActive) {
+                    $scope.movies = []
+                    $scope.currentPage = 1
+                    $scope.searchActive = false
+                }
+                $scope.movieService.getAllMovies($scope.currentPage, function (error, result) {
+                    if (error) {
+                        //handle error
+                    }
+                    // $scope.movies = []
+                    $scope.total_results = result.data.total_results;
+                    $scope.total_pages = result.data.total_pages;
+                    $scope.currentPage = $scope.currentPage;
+                    result.data.results.forEach(element => {
+                        if (element.poster_path != null) {
+                            $scope.movies.push(element)
+                        }
+                    });
+
                 });
-                setTimeout(function () {
-                    $scope.loading_flag = false;
-                }, 2000);
-            });
+            }
+
+
+            setTimeout(function () {
+                $scope.loading_flag = false;
+            }, 2000);
         }
     }
 
@@ -55,25 +104,7 @@ app.controller('movieController', function ($scope, movieService) {
         })
     }
 
-    // search movie
-    $scope.searchMovie = function (keyword) {
-        let param = {
-            page: 1,
-            keyword: keyword
-        }
-        $scope.movieService.searchMovies(param, function (error, result) {
-            $scope.movies = []
-            if (error) {
-                // handle error
-            }
-            result.data.results.forEach(element => {
-                if (element.poster_path != null) {
-                    $scope.movies.push(element)
-                }
-            })
 
-        })
-    }
 
     // Function to Sort the Data by given Property
     function sortByProperty(property) {
@@ -100,38 +131,10 @@ app.controller('movieController', function ($scope, movieService) {
 
     $scope.clearSearch = function () {
         $scope.search = "";
-        $scope.getAllMovies(options)
+        $scope.total_search_results = 0;
+        $scope.getAllMovies()
+
     }
-
-
-    // scope.loadMoreCourses = function () {
-    //     // if (scope.loadingResult) {
-    //     //     return;
-    //     // }
-    //     if ($scope.option.page >=  $scope.total_pages) {
-    //         return;
-    //     }
-    //     $scope.currentPage = $scope.currentPage + 1;
-    //     // $scope.page = (scope.pagination.currentPage - 1) * scope.pagination.pageSize;
-    //     // $scope.page = scope.pagination.pageSize;
-    //     // scope.loadingResult = true;
-    //     // $scope.movie = CourseService.courses.list({ offset: scope.offset, limit: scope.limit });
-    //     // scope.loadingResult = false;
-    //     let param = {
-    //         page: $scope.currentPage
-    //     }
-    //     $scope.movieService.getAllMovies(param, function (error, result) {
-
-    //     })
-    // };
-
-    // scope.initializeResultList = function () {
-    //     CourseService.courses.count({}, function (count) {
-    //         scope.total = count;
-    //         scope.pagination.noOfPages = Math.ceil(count / scope.pagination.pageSize);
-    //         scope.loadMoreCourses();
-    //     });
-    // }
 });
 
 app.controller('detailsController', function ($scope) {
