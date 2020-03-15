@@ -7,7 +7,12 @@ app.controller('movieController', function ($scope, movieService) {
             if (error) {
                 //handle error
             }
-            $scope.movies = result.data.results;
+            $scope.movies = []
+            result.data.results.forEach(element => {
+                if (element.poster_path != null) {
+                    $scope.movies.push(element)
+                }
+            });
         });
     }
 
@@ -28,6 +33,7 @@ app.controller('movieController', function ($scope, movieService) {
         })
     }
 
+    // search movie
     $scope.searchMovie = function (keyword) {
         let param = {
             page: 1,
@@ -38,8 +44,17 @@ app.controller('movieController', function ($scope, movieService) {
             if (error) {
                 // handle error
             }
-            console.log(result.data.results)
-            $scope.movies = result.data.results;
+            result.data.results.forEach(element => {
+                if (element.poster_path != null) {
+                    $scope.movies.push(element)
+                }
+            })
+
         })
+    }
+
+    $scope.clearSearch = function () {
+        $scope.search = "";
+        $scope.getAllMovies(options)
     }
 });
