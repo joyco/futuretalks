@@ -72,6 +72,13 @@ body {
   width: 25%;
   display: inline-block;
   height: 50%;
+  cursor: pointer;
+  transition: all 0.1s cubic-bezier(0.39, 0.9, 0.46, 0.96);
+  overflow: hidden;
+}
+
+.movie:hover {
+  transform: scale(1.1);
 }
 
 .large-banner{
@@ -81,6 +88,9 @@ body {
 .even-row, .odd-row {
   position: relative;
   margin-bottom: 1rem;
+}
+.even-row a:first-child, .odd-row a:last-child  {
+  width: 50%
 }
 .even-row a:nth-last-child(2) {
   position: absolute;
@@ -109,7 +119,6 @@ body {
 .movieList, .movieListSort {
   position: relative;
   width: 100%;
-  overflow: hidden;
 }
 .sortby-label {
   font-size: 14px;

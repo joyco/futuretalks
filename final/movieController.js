@@ -5,11 +5,15 @@ app.controller('movieController', function ($scope, movieService, $location) {
         page: 1
     }
     $scope.movies = []
-    $scope.loadingFlag = false;
-    $scope.sorted_movies = []
+    $scope.loading_flag = false;
+    $scope.sorted_movies = [];
+    $scope.html_layout = "";
+
     // search movie
     $scope.searchActive = false;
     $scope.search = ""
+    var add_div = true,
+        movie_added_count = 0;
 
     $scope.searchMovie = function () {
         $scope.searchActive = true;
@@ -30,10 +34,11 @@ app.controller('movieController', function ($scope, movieService, $location) {
             if (error) {
                 // handle error
             }
-            
+
             $scope.total_search_results = result.data.total_results;
             $scope.total_search_pages = result.data.total_pages;
             $scope.currentSearchPage = $scope.currentSearchPage;
+            document.getElementById('movies-list').innerHTML = "";
             result.data.results.forEach(element => {
                 if (element.poster_path != null) {
                     $scope.movies.push(element)
@@ -46,6 +51,7 @@ app.controller('movieController', function ($scope, movieService, $location) {
     // get all the movies
     $scope.getAllMovies = function () {
         if (!$scope.loading_flag) {
+            $scope.html_layout = "";
             $scope.loading_flag = true;
             if ($scope.search != "") {
                 // search movie
@@ -73,11 +79,36 @@ app.controller('movieController', function ($scope, movieService, $location) {
                     $scope.total_results = result.data.total_results;
                     $scope.total_pages = result.data.total_pages;
                     $scope.currentPage = $scope.currentPage;
+                    /*result.data.results.forEach(element => {
+                        if (element.poster_path != null) {
+                            $scope.movies.push(element)
+                        }
+                    });*/
+
                     result.data.results.forEach(element => {
                         if (element.poster_path != null) {
                             $scope.movies.push(element)
                         }
+
+                        if (element.poster_path != null) {
+                            if (add_div) {
+                                add_div = false;
+                                $scope.html_layout += (movie_added_count % 2 == 0) ? '<div class="row even-row">' : '<div class="row odd-row">';
+                            }
+
+                            $scope.html_layout += '<a  href="#" class="movie" ng-click="getDetailsById(' + element.id + ')">' +
+                                '<img src = "https://image.tmdb.org/t/p/original/' + element.poster_path + '" alt = "" class="img-fluid logo" ></a >';
+
+                            if ((movie_added_count + 1) % 5 == 0) {
+                                add_div = true;
+                                $scope.html_layout += "</div>"
+                            }
+                            movie_added_count++;
+                        }
                     });
+
+                    var movie_container = document.getElementById('movies-list');
+                    movie_container.insertAdjacentHTML('beforeend', $scope.html_layout);
 
                 });
             }
@@ -129,13 +160,15 @@ app.controller('movieController', function ($scope, movieService, $location) {
             $scope.sorted_movies = $scope.movies.sort(sortByProperty(keyword));
     }
 
-    
+
     // clear search
     $scope.clearSearch = function () {
         $scope.search = "";
         $scope.total_search_results = 0;
-        $scope.getAllMovies()
-
+        $scope.loading_flag = false;
+        movie_added_count = 0;
+        add_div = true;
+        $scope.getAllMovies();
     }
 });
 
