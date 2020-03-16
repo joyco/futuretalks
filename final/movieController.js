@@ -1,5 +1,5 @@
 
-app.controller('movieController', function ($scope, movieService, $location) {
+app.controller('movieController', function ($scope, movieService, $location, moviedetail) {
     $scope.movieService = new movieService();
     var options = {
         page: 1
@@ -8,6 +8,9 @@ app.controller('movieController', function ($scope, movieService, $location) {
     $scope.loading_flag = false;
     $scope.sorted_movies = [];
     $scope.html_layout = "";
+    $scope.total_search_results = 0;
+    $scope.movie_detail = moviedetail;
+    $scope.showSortingWrapper = false;
 
     // search movie
     $scope.searchActive = false;
@@ -17,6 +20,7 @@ app.controller('movieController', function ($scope, movieService, $location) {
 
     $scope.searchMovie = function () {
         $scope.searchActive = true;
+        $scope.showSortingWrapper = true;
         if ($scope.total_search_results > 0) {
             if ($scope.currentSearchPage <= $scope.total_search_pages) {
                 $scope.currentSearchPage = $scope.currentSearchPage + 1;
@@ -71,6 +75,7 @@ app.controller('movieController', function ($scope, movieService, $location) {
                     $scope.currentPage = 1
                     $scope.searchActive = false
                 }
+                $scope.showSortingWrapper = false;
                 $scope.movieService.getAllMovies($scope.currentPage, function (error, result) {
                     if (error) {
                         //handle error
@@ -89,22 +94,21 @@ app.controller('movieController', function ($scope, movieService, $location) {
                         if (element.poster_path != null) {
                             $scope.movies.push(element)
                         }
+                        var poster = (element.poster_path == null) ? "assets/img/poster.jpg" : "https://image.tmdb.org/t/p/original/" + element.poster_path;
 
-                        if (element.poster_path != null) {
-                            if (add_div) {
-                                add_div = false;
-                                $scope.html_layout += (movie_added_count % 2 == 0) ? '<div class="row even-row">' : '<div class="row odd-row">';
-                            }
-
-                            $scope.html_layout += '<a  href="#" class="movie" ng-click="getDetailsById(' + element.id + ')">' +
-                                '<img src = "https://image.tmdb.org/t/p/original/' + element.poster_path + '" alt = "" class="img-fluid logo" ></a >';
-
-                            if ((movie_added_count + 1) % 5 == 0) {
-                                add_div = true;
-                                $scope.html_layout += "</div>"
-                            }
-                            movie_added_count++;
+                        if (add_div) {
+                            add_div = false;
+                            $scope.html_layout += (movie_added_count % 2 == 0) ? '<div class="row even-row">' : '<div class="row odd-row">';
                         }
+
+                        $scope.html_layout += '<a class="movie" onclick="angular.element(document.getElementById(\'myCtrl\')).scope().getDetailsById(' + element.id + ')">' +
+                            '<img src = ' + poster + ' alt = "" class="img-fluid logo" ></a >';
+
+                        if ((movie_added_count + 1) % 5 == 0) {
+                            add_div = true;
+                            $scope.html_layout += "</div>"
+                        }
+                        movie_added_count++;
                     });
 
                     var movie_container = document.getElementById('movies-list');
@@ -132,7 +136,8 @@ app.controller('movieController', function ($scope, movieService, $location) {
                 //handle error
             }
             $scope.movieDetails = result.data;
-            $location.path("/detail");
+            $scope.movie_detail.data = result.data;
+            $location.path("detail");
         })
     }
 
@@ -154,10 +159,8 @@ app.controller('movieController', function ($scope, movieService, $location) {
 
     // sortby
     $scope.sortMovie = function (keyword) {
-        if (keyword === "upcoming")
-            $scope.sorted_movies = [];
-        else
-            $scope.sorted_movies = $scope.movies.sort(sortByProperty(keyword));
+        $scope.showSortingWrapper = true;
+        $scope.sorted_movies = $scope.movies.sort(sortByProperty(keyword));
     }
 
 
@@ -172,6 +175,6 @@ app.controller('movieController', function ($scope, movieService, $location) {
     }
 });
 
-app.controller('detailsController', function ($scope) {
-    console.log($scope);
+app.controller('detailsController', function ($scope, moviedetail) {
+    $scope.movie_detail = moviedetail.data;
 });
