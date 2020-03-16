@@ -8,6 +8,7 @@ app.controller('movieController', function ($scope, movieService, $location) {
     $scope.loading_flag = false;
     $scope.sorted_movies = [];
     $scope.html_layout = "";
+    $scope.total_search_results = 0;
 
     // search movie
     $scope.searchActive = false;
