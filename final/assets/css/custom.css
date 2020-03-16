@@ -77,6 +77,14 @@ body {
   overflow: hidden;
 }
 
+.movie1 {
+  width: 25%;
+  display: inline-block;
+  cursor: pointer;
+  transition: all 0.1s cubic-bezier(0.39, 0.9, 0.46, 0.96);
+  overflow: hidden;
+}
+
 .movie:hover {
   transform: scale(1.1);
 }
@@ -131,4 +139,23 @@ body {
   font-size: 14px;
   padding-left: 6px;
   padding-right: 20px;
+}
+
+.watch-trailer {
+  height: 40px;
+  border: 1px solid #cccccc;
+  color: #b3b3b3;
+  cursor: pointer;
+  margin: 1px 4px 0;
+  padding: 7px 12px;
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 2px;
+}
+
+.watch-trailer:hover {
+  background-color: #b3b3b3;
+  color: #FFF;
+  text-decoration: none;
 }

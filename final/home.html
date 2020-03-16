@@ -1,45 +1,98 @@
- <!--Movie listing container-->
- <div class="container " lazy-scroll="getAllMovies()" lazy-scroll-trigger="100">
-    <div class="row">
-        <div class="col-md-3">
-            <label class="sortby-label">Sort by: </label>
-            <select id="sortby" name="sortby" ng-model="sortbySelected" class="sortby"
-                ng-change="sortMovie(sortbySelected)">
-                <option value="vote_average">Rating</option>
-                <option value="release_date">By Release Date</option>
-                <option value="title">Alphabetical</option>
-            </select>
+<!--search section-->
+<div class="container">
+        <div class="row my-4">
+                <div class="col-md-12">
+                        <div>
+                                <div class="search-container">
+                                        <input type="search" class="search-input" style="border-radius:2px 0 0 2px"
+                                                placeholder="Search within these results" ng-model="search"><button
+                                                class="clear-button" ng-click="clearSearch()">X</button>
+                                </div>
+                                <button class="search-button" style="border-radius:0 2px 2px 0"
+                                        ng-click="searchMovie(search)">Search
+                                </button>
+                        </div>
+                </div>
         </div>
-    </div>
+</div>
 
-    <div class="row movieList" ng-if="sorted_movies.length==0">
+<!--Movie listing container-->
+<div class="container " lazy-scroll="getAllMovies()" lazy-scroll-trigger="100">
+        <div class="row">
+                <div class="col-md-3">
+                        <label class="sortby-label">Sort by: </label>
+                        <select id="sortby" name="sortby" ng-model="sortbySelected" class="sortby"
+                                ng-change="sortMovie(sortbySelected)">
+                                <option value="vote_average">Rating</option>
+                                <option value="release_date">By Release Date</option>
+                                <option value="title">Alphabetical</option>
+                        </select>
+                </div>
+        </div>
+
+        <!-- <div class="row movieList" ng-if="sorted_movies.length==0">
         <a ng-repeat="movie in movies" class="movie" ng-click="getDetailsById(movie.id)"><img
                 src="https://image.tmdb.org/t/p/original/{{movie.poster_path}}" alt=""
                 class="img-fluid logo"></a>
-    </div>
-
-    <div class="row movieListSort" ng-if="sorted_movies.length>0">
-        <a ng-repeat="movie in sorted_movies" class="movie" ng-if="movie.poster_path != null"
-            ng-click="getDetailsById(movie.id)"><img
-                src="https://image.tmdb.org/t/p/original/{{movie.poster_path}}" alt=""
-                class="img-fluid logo"></a>
-    </div>
-
-
-    <!-- <div class="row even-row">
-        <a class="movie large-banner" href="#"><img src="assets/img/freaks.jpg" alt=""
-                class="img-fluid logo"></a>
-        <a class="movie" href="#"><img src="assets/img/underwater.jpg" alt="" class="img-fluid logo"></a>
-        <a class="movie" href="#"><img src="assets/img/freaks.jpg" alt="" class="img-fluid logo"></a>
-        <a class="movie" href="#"><img src="assets/img/freaks.jpg" alt="" class="img-fluid logo"></a>
-        <a class="movie" href="#"><img src="assets/img/underwater.jpg" alt="" class="img-fluid logo"></a>
     </div> -->
-    <!-- <div class="row odd-row">
-        <a class="movie" href="#"><img src="assets/img/freaks.jpg" alt="" class="img-fluid logo"></a>
-        <a class="movie" href="#"><img src="assets/img/underwater.jpg" alt="" class="img-fluid logo"></a>
-        <a class="movie" href="#"><img src="assets/img/freaks.jpg" alt="" class="img-fluid logo"></a>
-        <a class="movie" href="#"><img src="assets/img/underwater.jpg" alt="" class="img-fluid logo"></a>
-        <a class="movie large-banner" href="#"><img src="assets/img/freaks.jpg" alt=""
-                class="img-fluid logo"></a>
-    </div> -->
+
+        <div id="movies-list" ng-hide="showSortingWrapper">
+
+        </div>
+
+
+        <div class="row movieList" ng-show="showSortingWrapper" ng-hide="!showSortingWrapper"
+                ng-if="total_search_results>0">
+                <div class="row">
+                        <a ng-repeat="movie in movies" class="movie1" ng-click="getDetailsById(movie.id)"><img
+                                        src="https://image.tmdb.org/t/p/original/{{movie.poster_path}}" alt=""
+                                        class="img-fluid logo"></a>
+                </div>
+        </div>
+
+
+        <div class="row movieListSort" ng-if="sorted_movies.length>0">
+                <a ng-repeat="movie in sorted_movies" class="movie1" ng-if="movie.poster_path != null"
+                        ng-click="getDetailsById(movie.id)"><img
+                                src="https://image.tmdb.org/t/p/original/{{movie.poster_path}}" alt=""
+                                class="img-fluid logo"></a>
+        </div>
 </div>
+
+
+
+
+<!-- <div class="row even-row">
+        <a class="movie large-banner" href="#"><img
+                src="https://image.tmdb.org/t/p/original//aQvJ5WPzZgYVDrxLX4R6cLJCEaQ.jpg" alt=""
+                class="img-fluid logo"></a>
+        <a class="movie" href="#"><img
+                src="https://image.tmdb.org/t/p/original//8WUVHemHFH2ZIP6NWkwlHWsyrEL.jpg" alt=""
+                class="img-fluid logo"></a>
+        <a class="movie" href="#"><img
+                src="https://image.tmdb.org/t/p/original//4U7hpTK0XTQBKT5X60bKmJd05ha.jpg" alt=""
+                class="img-fluid logo"></a>
+        <a class="movie" href="#"><img
+                src="https://image.tmdb.org/t/p/original//3tS5rfODPyaFZOKWTizio9iWUcy.jpg" alt=""
+                class="img-fluid logo"></a>
+        <a class="movie" href="#"><img
+                src="https://image.tmdb.org/t/p/original//7W0G3YECgDAfnuiHG91r8WqgIOe.jpg" alt=""
+                class="img-fluid logo"></a>
+    </div> -->
+<!-- <div class="row odd-row">
+        <a class="movie" href="#"><img
+                src="https://image.tmdb.org/t/p/original//d0FWbzrmm99BTfUqf1Lbjl2zu3S.jpg" alt=""
+                class="img-fluid logo"></a>
+        <a class="movie" href="#"><img
+                src="https://image.tmdb.org/t/p/original//cuuI1UVwnoyDoN691Z0bYZrOezx.jpg" alt=""
+                class="img-fluid logo"></a>
+        <a class="movie" href="#"><img
+                src="https://image.tmdb.org/t/p/original//ek5EWMRFIHXPB43axZcyJr2NBrJ.jpg" alt=""
+                class="img-fluid logo"></a>
+        <a class="movie" href="#"><img
+                src="https://image.tmdb.org/t/p/original//3ND0NgYAwktnXfNhA6dPwU8YbT7.jpg" alt=""
+                class="img-fluid logo"></a>
+        <a class="movie large-banner" href="#"><img
+                src="https://image.tmdb.org/t/p/original//6VZlm8sEwxkE3L5nXxz17QLj1sF.jpg" alt=""
+                class="img-fluid logo"></a>
+    </div> -->
